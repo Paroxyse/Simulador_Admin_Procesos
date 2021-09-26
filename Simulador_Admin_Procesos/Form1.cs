@@ -32,15 +32,20 @@ namespace Simulador_Admin_Procesos
         {
            
             InitializeComponent();
-            for(int i=0;i<6;i++) { 
-                arp[i] = new List<Proceso>(); 
-                
-            }
+            setLists();
             stw = new Stopwatch();
             r = new Random();
             CB_Algoritmo.SelectedIndex = 0;
            // Timer.Start();
            
+        }
+        public void setLists()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                arp[i] = new List<Proceso>();
+
+            }
         }
         private void Ejecucion()
         {
@@ -50,7 +55,28 @@ namespace Simulador_Admin_Procesos
                 EndProcess();
             }
             //switch con variación de método
-            RoundRobin();
+
+
+            switch(CB_Algoritmo.SelectedIndex){
+                case 0:
+                    FIFO();
+                    break;
+                case 1:
+                    RoundRobin();
+                    break;
+                case 2:
+                    Lowest();
+                    break;
+                default:
+                    FIFO();
+                    break;
+            }
+           
+
+
+
+
+
             //aeaeaeaea
             desbloqueo();
             Unsus(3,2);
@@ -109,7 +135,9 @@ namespace Simulador_Admin_Procesos
         {
             if(arp[4].Count>0 && arp[4][0].T_rest <= 0)
             {
+                arp[4][0].salida = (int)Math.Round(stw.Elapsed.TotalSeconds);
                 Mover(arp[4][0], arp[4], arp[5]);
+               
                 qa = 0;
             }
           
@@ -228,7 +256,12 @@ namespace Simulador_Admin_Procesos
         }
         private bool Acomodar(Proceso pr)
         {
-        
+
+            if (arp[4].Count < 1)
+            {
+                arp[4].Add(pr);
+                return true;
+            }
             if (arp[0].Count < 5)
             {
                 arp[0].Add(pr);
@@ -303,8 +336,8 @@ namespace Simulador_Admin_Procesos
         private void reporteDetalladoDeProcesosTerminadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Implementar llenado de columnas
-            Form2 rep = new Form2();
-
+            Form2 rep = new Form2(arp[5]);
+            rep.ShowDialog();
             rep.Dispose();
         }
 
@@ -317,6 +350,14 @@ namespace Simulador_Admin_Procesos
         private void SPN_Quantum_ValueChanged(object sender, EventArgs e)
         {
             qmax = (int)SPN_Quantum.Value+1;
+        }
+
+        private void richTextBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            setLists();
+            ActualizarFilas();
+            qmax = 5;
+            qa = 0;
         }
     }
 }

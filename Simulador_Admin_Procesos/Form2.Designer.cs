@@ -30,7 +30,7 @@ namespace Simulador_Admin_Procesos
         private void InitializeComponent()
         {
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DVG_datos = new System.Windows.Forms.DataGridView();
             this.Proceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ti = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,13 +38,13 @@ namespace Simulador_Admin_Procesos
             this.Ts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ind_s = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DVG_stats = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelPrefab1 = new LibComponentes.labelPrefab();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVG_datos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVG_stats)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox4
@@ -57,10 +57,10 @@ namespace Simulador_Admin_Procesos
             this.textBox4.TabIndex = 6;
             this.textBox4.Text = "Historial";
             // 
-            // dataGridView1
+            // DVG_datos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DVG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DVG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proceso,
             this.ti,
             this.t,
@@ -68,10 +68,10 @@ namespace Simulador_Admin_Procesos
             this.Ts,
             this.Wt,
             this.Ind_s});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 78);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(731, 229);
-            this.dataGridView1.TabIndex = 7;
+            this.DVG_datos.Location = new System.Drawing.Point(12, 78);
+            this.DVG_datos.Name = "DVG_datos";
+            this.DVG_datos.Size = new System.Drawing.Size(731, 229);
+            this.DVG_datos.TabIndex = 7;
             // 
             // Proceso
             // 
@@ -115,17 +115,18 @@ namespace Simulador_Admin_Procesos
             this.Ind_s.Name = "Ind_s";
             this.Ind_s.ReadOnly = true;
             // 
-            // dataGridView2
+            // DVG_stats
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DVG_stats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DVG_stats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dataGridView2.Location = new System.Drawing.Point(400, 313);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(343, 54);
-            this.dataGridView2.TabIndex = 8;
+            this.DVG_stats.Location = new System.Drawing.Point(400, 313);
+            this.DVG_stats.Name = "DVG_stats";
+            this.DVG_stats.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DVG_stats.Size = new System.Drawing.Size(343, 54);
+            this.DVG_stats.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -161,13 +162,13 @@ namespace Simulador_Admin_Procesos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelPrefab1);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DVG_stats);
+            this.Controls.Add(this.DVG_datos);
             this.Controls.Add(this.textBox4);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVG_datos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVG_stats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +177,7 @@ namespace Simulador_Admin_Procesos
         #endregion
 
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DVG_datos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proceso;
         private System.Windows.Forms.DataGridViewTextBoxColumn ti;
         private System.Windows.Forms.DataGridViewTextBoxColumn t;
@@ -184,7 +185,7 @@ namespace Simulador_Admin_Procesos
         private System.Windows.Forms.DataGridViewTextBoxColumn Ts;
         private System.Windows.Forms.DataGridViewTextBoxColumn Wt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ind_s;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView DVG_stats;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;

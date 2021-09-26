@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simulador_Admin_Procesos
 {
-    class Proceso
+    public class Proceso
     {
         public string nombre;
         public int tiempo, prioridad,T_rest, llegada, salida;

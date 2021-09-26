@@ -79,6 +79,7 @@ namespace Simulador_Admin_Procesos
             this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SPN_Quantum = new System.Windows.Forms.NumericUpDown();
             this.Quantum = new LibComponentes.labelPrefab();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Actual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SP_Tiempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_L)).BeginInit();
@@ -557,11 +558,23 @@ namespace Simulador_Admin_Procesos
             this.Quantum.Text = "Q=";
             this.Quantum.Visible = false;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(972, 20);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(38, 52);
+            this.richTextBox1.TabIndex = 34;
+            this.richTextBox1.Text = "💀";
+            this.richTextBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseDoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 789);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Quantum);
             this.Controls.Add(this.SPN_Quantum);
             this.Controls.Add(this.DGV_T);
@@ -660,6 +673,7 @@ namespace Simulador_Admin_Procesos
         private System.Windows.Forms.ToolStripMenuItem reporteDetalladoDeProcesosTerminadosToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown SPN_Quantum;
         private LibComponentes.labelPrefab Quantum;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
