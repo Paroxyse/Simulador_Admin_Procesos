@@ -20,6 +20,21 @@ namespace Simulador_Admin_Procesos
             this.llegada = llegada;
          
         }
+        public string prToString()
+        {
+            switch (this.prioridad)
+            {
+                case 1:
+                    return "Low";
+                   
+                case 2:
+                    return "Medium";
+                case 3:
+                    return "High";
+                default:
+                    return "Low";
+            }
+        }
         public void setIndserv()
         {
             if (T_rest == 0)

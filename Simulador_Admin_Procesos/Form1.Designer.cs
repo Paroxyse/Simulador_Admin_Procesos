@@ -52,33 +52,33 @@ namespace Simulador_Admin_Procesos
             this.labelPrefab6 = new LibComponentes.labelPrefab();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.lblCrn = new LibComponentes.labelPrefab();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_L = new System.Windows.Forms.DataGridView();
             this.Proceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DGV_B = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.DGV_SL = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.DGV_SB = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.DGV_T = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Actual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SP_Tiempo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_L)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_B)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_SL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_SB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_T)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -307,17 +307,17 @@ namespace Simulador_Admin_Procesos
             this.lblCrn.TabIndex = 25;
             this.lblCrn.Text = "00:00";
             // 
-            // dataGridView1
+            // DGV_L
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_L.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_L.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proceso,
             this.TiempoR,
             this.Prioridad});
-            this.dataGridView1.Location = new System.Drawing.Point(472, 116);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(244, 272);
-            this.dataGridView1.TabIndex = 26;
+            this.DGV_L.Location = new System.Drawing.Point(472, 116);
+            this.DGV_L.Name = "DGV_L";
+            this.DGV_L.Size = new System.Drawing.Size(244, 272);
+            this.DGV_L.TabIndex = 26;
             // 
             // Proceso
             // 
@@ -338,17 +338,17 @@ namespace Simulador_Admin_Procesos
             this.Prioridad.Name = "Prioridad";
             this.Prioridad.Width = 69;
             // 
-            // dataGridView2
+            // DGV_B
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_B.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dataGridView2.Location = new System.Drawing.Point(472, 449);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(244, 272);
-            this.dataGridView2.TabIndex = 27;
+            this.DGV_B.Location = new System.Drawing.Point(472, 449);
+            this.DGV_B.Name = "DGV_B";
+            this.DGV_B.Size = new System.Drawing.Size(244, 272);
+            this.DGV_B.TabIndex = 27;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -369,17 +369,17 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 69;
             // 
-            // dataGridView3
+            // DGV_SL
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_SL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_SL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridView3.Location = new System.Drawing.Point(750, 116);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(244, 272);
-            this.dataGridView3.TabIndex = 28;
+            this.DGV_SL.Location = new System.Drawing.Point(750, 116);
+            this.DGV_SL.Name = "DGV_SL";
+            this.DGV_SL.Size = new System.Drawing.Size(244, 272);
+            this.DGV_SL.TabIndex = 28;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -400,17 +400,17 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Width = 69;
             // 
-            // dataGridView4
+            // DGV_SB
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_SB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_SB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.dataGridView4.Location = new System.Drawing.Point(750, 449);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(244, 272);
-            this.dataGridView4.TabIndex = 29;
+            this.DGV_SB.Location = new System.Drawing.Point(750, 449);
+            this.DGV_SB.Name = "DGV_SB";
+            this.DGV_SB.Size = new System.Drawing.Size(244, 272);
+            this.DGV_SB.TabIndex = 29;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -431,17 +431,17 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 69;
             // 
-            // dataGridView5
+            // DGV_T
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_T.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_T.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            this.dataGridView5.Location = new System.Drawing.Point(1021, 116);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(244, 605);
-            this.dataGridView5.TabIndex = 30;
+            this.DGV_T.Location = new System.Drawing.Point(1021, 116);
+            this.DGV_T.Name = "DGV_T";
+            this.DGV_T.Size = new System.Drawing.Size(244, 605);
+            this.DGV_T.TabIndex = 30;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -467,11 +467,11 @@ namespace Simulador_Admin_Procesos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 789);
-            this.Controls.Add(this.dataGridView5);
-            this.Controls.Add(this.dataGridView4);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_T);
+            this.Controls.Add(this.DGV_SB);
+            this.Controls.Add(this.DGV_SL);
+            this.Controls.Add(this.DGV_B);
+            this.Controls.Add(this.DGV_L);
             this.Controls.Add(this.lblCrn);
             this.Controls.Add(this.labelPrefab6);
             this.Controls.Add(this.botonThicc3);
@@ -498,11 +498,11 @@ namespace Simulador_Admin_Procesos
             this.Text = "Administrador de procesos Fake";
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Actual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SP_Tiempo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_L)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_B)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_SL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_SB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_T)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,23 +531,23 @@ namespace Simulador_Admin_Procesos
         private LibComponentes.labelPrefab labelPrefab6;
         private System.Windows.Forms.Timer Timer;
         private LibComponentes.labelPrefab lblCrn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_L;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proceso;
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoR;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prioridad;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView DGV_B;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView DGV_SL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView DGV_SB;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView DGV_T;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;

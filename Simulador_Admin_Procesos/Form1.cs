@@ -119,19 +119,48 @@ namespace Simulador_Admin_Procesos
             timerCicles++;
             if (timerCicles == 9)
             {
-                
+                //Implementar método de manejo de procesos
             }
             timerCicles %= 9;
         }
-
+        private void Acomodar(Proceso pr) {
+            if (arp[0].Count < 5)
+            {
+                arp[0].Add(pr);
+                return;
+            }
+            if (arp[1].Count < 5)
+            {
+                arp[1].Add(pr);
+                return;
+            }
+        }
+        private void ActualizarFilas() {
+          
+            DataGridView[] aux = new DataGridView[] {DGV_L,DGV_B,DGV_SL,DGV_SB,DGV_Actual,DGV_T };
+             for(int i = 0; i < 6; i++)
+            {
+                aux[i].Rows.Clear();
+                foreach(Proceso x in arp[i])
+                {
+                
+                    aux[i].Rows.Add(x.nombre,x.T_rest,x.prToString());
+                }
+            }
+        }
         private void botonThicc1_Click(object sender, EventArgs e)
         {
-
+            Acomodar(capturarNP());
+            ActualizarFilas();
         }
 
         private void botonThicc2_Click(object sender, EventArgs e)
         {
-
+            for(int i = 0; i < 10; i++)
+            {
+                Acomodar(generarNP());
+            }
+            ActualizarFilas();
         }
     }
 }
