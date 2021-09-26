@@ -72,6 +72,11 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pri = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Actual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SP_Tiempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_L)).BeginInit();
@@ -79,6 +84,7 @@ namespace Simulador_Admin_Procesos
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_T)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -144,9 +150,14 @@ namespace Simulador_Admin_Procesos
             // DGV_Actual
             // 
             this.DGV_Actual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Actual.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pr,
+            this.Tr,
+            this.Pri});
             this.DGV_Actual.Location = new System.Drawing.Point(71, 203);
             this.DGV_Actual.Name = "DGV_Actual";
-            this.DGV_Actual.Size = new System.Drawing.Size(244, 49);
+            this.DGV_Actual.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DGV_Actual.Size = new System.Drawing.Size(253, 59);
             this.DGV_Actual.TabIndex = 11;
             // 
             // CB_Algoritmo
@@ -273,7 +284,7 @@ namespace Simulador_Admin_Procesos
             // 
             // botonThicc3
             // 
-            this.botonThicc3.BackColor = System.Drawing.Color.LawnGreen;
+            this.botonThicc3.BackColor = System.Drawing.Color.DarkRed;
             this.botonThicc3.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Italic);
             this.botonThicc3.Location = new System.Drawing.Point(360, 61);
             this.botonThicc3.Name = "botonThicc3";
@@ -345,7 +356,7 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.DGV_B.Location = new System.Drawing.Point(472, 449);
+            this.DGV_B.Location = new System.Drawing.Point(750, 116);
             this.DGV_B.Name = "DGV_B";
             this.DGV_B.Size = new System.Drawing.Size(244, 272);
             this.DGV_B.TabIndex = 27;
@@ -376,7 +387,7 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.DGV_SL.Location = new System.Drawing.Point(750, 116);
+            this.DGV_SL.Location = new System.Drawing.Point(472, 449);
             this.DGV_SL.Name = "DGV_SL";
             this.DGV_SL.Size = new System.Drawing.Size(244, 272);
             this.DGV_SL.TabIndex = 28;
@@ -462,6 +473,44 @@ namespace Simulador_Admin_Procesos
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Width = 69;
             // 
+            // pr
+            // 
+            this.pr.HeaderText = "Proceso";
+            this.pr.Name = "pr";
+            this.pr.ReadOnly = true;
+            this.pr.Width = 70;
+            // 
+            // Tr
+            // 
+            this.Tr.HeaderText = "Tiempo Restante";
+            this.Tr.Name = "Tr";
+            this.Tr.ReadOnly = true;
+            this.Tr.Width = 70;
+            // 
+            // Pri
+            // 
+            this.Pri.HeaderText = "Prioridad";
+            this.Pri.Name = "Pri";
+            this.Pri.ReadOnly = true;
+            this.Pri.Width = 70;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1277, 24);
+            this.menuStrip1.TabIndex = 31;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // reporteDetalladoDeProcesosTerminadosToolStripMenuItem
+            // 
+            this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem.Name = "reporteDetalladoDeProcesosTerminadosToolStripMenuItem";
+            this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem.Size = new System.Drawing.Size(241, 20);
+            this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem.Text = "Reporte detallado de procesos terminados";
+            this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem.Click += new System.EventHandler(this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,7 +542,9 @@ namespace Simulador_Admin_Procesos
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Administrador de procesos Fake";
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Actual)).EndInit();
@@ -503,6 +554,8 @@ namespace Simulador_Admin_Procesos
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_T)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,6 +604,11 @@ namespace Simulador_Admin_Procesos
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pri;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem reporteDetalladoDeProcesosTerminadosToolStripMenuItem;
     }
 }
 

@@ -15,10 +15,11 @@ namespace Simulador_Admin_Procesos
 {
     public partial class Form1 : Form
     {
+        Random r;
         List<Proceso>[] arp = new List<Proceso>[6];
         // 0 Listo
-        // 1 Bloqueado
-        // 2 Suspendido Listo
+        // 1 Suspendido Listo
+        // 2 Bloqueado
         // 3 Suspendido Bloqueado
         // 4 Ejecutando
         // 5 Terminado
@@ -34,12 +35,73 @@ namespace Simulador_Admin_Procesos
                 
             }
             stw = new Stopwatch();
-            Timer.Start();
+            r = new Random();
+           // Timer.Start();
            
+        }
+        private void Ejecucion()
+        {
+            if (arp[4].Count != 0)
+            {
+                arp[4][0].T_rest--;
+                EndProcess();
+            }
+            //switch con variación de método
+            FIFO();
+            //aeaeaeaea
+            desbloqueo();
+            Unsus(3,2);
+            Unsus(1, 0);
+            bloqueo();
+            ActualizarFilas();
+        }
+        private void FIFO() {
+            if (arp[0].Count > 0 && arp[4].Count==0)
+            {
+                Mover(arp[0][0], arp[0], arp[4]);
+            }
+        }
+        private void Lowest() { }
+        private void RoundRobin() { }
+        private void EndProcess()
+        {
+            if(arp[4].Count>0 && arp[4][0].T_rest <= 0)
+            {
+                Mover(arp[4][0], arp[4], arp[5]);
+            }
+        }
+        private void Unsus(int sender, int receiver) {
+        for(int i = arp[sender].Count - 1; i >= 0; i--)
+            {
+                if (arp[receiver].Count == 5)
+                {
+                    return;
+                }
+                Mover(arp[sender][i], arp[sender], arp[receiver]);
+            }
+        }
+        private void desbloqueo()
+        {
+            
+            for (int i = arp[2].Count -1; i>=0; i--)
+            {
+                if (r.Next(3)==2 && Acomodar(arp[2][i]))
+                {
+                    arp[2].RemoveAt(i);
+                }
+            }
+        }
+        private void bloqueo()
+        {
+            r = new Random();
+            if (arp[4].Count == 1 && r.Next(50) == 1)
+            {
+                AcomodarBloqueo();
+            }
         }
         private Proceso generarNP()
         {
-            Random r = new Random(System.DateTime.Now.Millisecond);
+            r = new Random(System.DateTime.Now.Millisecond);
             string aux = "";
             int Local_random;
             for (int i = 0; i < 5; i++)
@@ -90,13 +152,48 @@ namespace Simulador_Admin_Procesos
             }
             return new Proceso(TB_NProc.Text, (int)SP_Tiempo.Value, s, (int)Math.Round(stw.Elapsed.TotalSeconds));
         }
+        //Mueve un proceso del contenedor a al b
         private void Mover(Proceso pr, List<Proceso> a, List<Proceso> b)
         {
-            try
+            if (a.Contains(pr)) {
+                try
+                {
+                    b.Add(pr);
+                    a.Remove(pr);
+                }
+                catch (Exception) { MessageBox.Show("jaja q loco"); }
+                return;
+            }
+            MessageBox.Show("El contenedor del parámetro a no contiene al proceso p");
+            
+        }
+        private void AcomodarBloqueo()
+        {
+            if (arp[2].Count < 5)
             {
-                b.Add(pr);
-                a.Remove(pr);
-            }catch (Exception){ }
+                Mover(arp[4][0], arp[4], arp[2]);
+                return;
+            }
+            if (arp[3].Count < 20)
+            {
+                Mover(arp[4][0], arp[4], arp[3]);
+                return;
+            }
+            MessageBox.Show("De alguna forma haz logrado llenar la cola de bloqueo suspendido, eres un monstruo");
+        }
+        private bool Acomodar(Proceso pr)
+        {
+            if (arp[0].Count < 5)
+            {
+                arp[0].Add(pr);
+                return true;
+            }
+            if (arp[1].Count < 10)
+            {
+                arp[1].Add(pr);
+                return true;
+            }
+            return false;
         }
         private void botonThicc3_Click(object sender, EventArgs e)
         {
@@ -120,21 +217,11 @@ namespace Simulador_Admin_Procesos
             if (timerCicles == 9)
             {
                 //Implementar método de manejo de procesos
+                Ejecucion();
             }
             timerCicles %= 9;
         }
-        private void Acomodar(Proceso pr) {
-            if (arp[0].Count < 5)
-            {
-                arp[0].Add(pr);
-                return;
-            }
-            if (arp[1].Count < 5)
-            {
-                arp[1].Add(pr);
-                return;
-            }
-        }
+      
         private void ActualizarFilas() {
           
             DataGridView[] aux = new DataGridView[] {DGV_L,DGV_B,DGV_SL,DGV_SB,DGV_Actual,DGV_T };
@@ -164,6 +251,14 @@ namespace Simulador_Admin_Procesos
                 Thread.Sleep(5);
             }
             ActualizarFilas();
+        }
+
+        private void reporteDetalladoDeProcesosTerminadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Implementar llenado de columnas
+            Form2 rep = new Form2();
+
+            rep.Dispose();
         }
     }
 }
