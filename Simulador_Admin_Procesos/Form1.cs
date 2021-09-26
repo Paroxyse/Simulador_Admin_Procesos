@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Timers;
 using System.Diagnostics;
@@ -39,7 +39,7 @@ namespace Simulador_Admin_Procesos
         }
         private Proceso generarNP()
         {
-            Random r = new Random();
+            Random r = new Random(System.DateTime.Now.Millisecond);
             string aux = "";
             int Local_random;
             for (int i = 0; i < 5; i++)
@@ -71,7 +71,7 @@ namespace Simulador_Admin_Procesos
                 }
             }
 
-            return new Proceso(aux, r.Next(10) + 1, r.Next(3) + 1,(int)Math.Round(stw.Elapsed.TotalSeconds)) ;
+            return new Proceso(aux, r.Next(20) + 1, r.Next(3) + 1,(int)Math.Round(stw.Elapsed.TotalSeconds)) ;
         }
         private Proceso capturarNP()
         {
@@ -156,9 +156,12 @@ namespace Simulador_Admin_Procesos
 
         private void botonThicc2_Click(object sender, EventArgs e)
         {
+           
             for(int i = 0; i < 10; i++)
             {
+                
                 Acomodar(generarNP());
+                Thread.Sleep(5);
             }
             ActualizarFilas();
         }
