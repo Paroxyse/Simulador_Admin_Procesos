@@ -16,6 +16,8 @@ namespace Simulador_Admin_Procesos
     public partial class Form1 : Form
     {
         Random r;
+        int qmax = 5;
+        int qa=0;
         List<Proceso>[] arp = new List<Proceso>[6];
         // 0 Listo
         // 1 Suspendido Listo
@@ -36,6 +38,7 @@ namespace Simulador_Admin_Procesos
             }
             stw = new Stopwatch();
             r = new Random();
+            CB_Algoritmo.SelectedIndex = 0;
            // Timer.Start();
            
         }
@@ -47,7 +50,7 @@ namespace Simulador_Admin_Procesos
                 EndProcess();
             }
             //switch con variación de método
-            FIFO();
+            RoundRobin();
             //aeaeaeaea
             desbloqueo();
             Unsus(3,2);
@@ -61,23 +64,65 @@ namespace Simulador_Admin_Procesos
                 Mover(arp[0][0], arp[0], arp[4]);
             }
         }
-        private void Lowest() { }
-        private void RoundRobin() { }
+        private void Lowest() {
+            if (arp[0].Count <= 0 ) { return; }
+
+
+            //Esto podría ser más eficiente si ordeno la lista primero y tomo el primer elemento
+            //Pero esto no es código de producción :^]
+            int lowindex = arp[0].Count-1;
+            for (int i = lowindex; i >= 0; i--)
+            {
+
+                if (arp[0][i].T_rest < arp[0][lowindex].T_rest) {
+                    lowindex = i;
+                }
+            }
+            if(arp[4].Count <= 0)
+            {
+                Mover(arp[0][lowindex], arp[0], arp[4]);
+                return;
+            }
+            if (arp[4].Count > 0 && arp[0][lowindex].T_rest < arp[4][0].T_rest) {
+                Mover(arp[0][lowindex], arp[0], arp[4]);
+                Mover(arp[4][0], arp[4], arp[0]);
+            }
+           
+
+
+        }
+        private void RoundRobin() {
+            FIFO();
+            qa++;
+            if (arp[4].Count > 0 && qa >= qmax)
+            {
+                
+                Mover(arp[4][0],arp[4],arp[1]);
+               // Unsus(1, 0);
+               // FIFO();
+                qa = 0;
+            }
+            
+        }
+       
         private void EndProcess()
         {
             if(arp[4].Count>0 && arp[4][0].T_rest <= 0)
             {
                 Mover(arp[4][0], arp[4], arp[5]);
+                qa = 0;
             }
+          
         }
         private void Unsus(int sender, int receiver) {
-        for(int i = arp[sender].Count - 1; i >= 0; i--)
+        for(int i = 0; i < arp[sender].Count ; i++)
             {
                 if (arp[receiver].Count == 5)
                 {
                     return;
                 }
                 Mover(arp[sender][i], arp[sender], arp[receiver]);
+                Unsus(sender, receiver);
             }
         }
         private void desbloqueo()
@@ -183,6 +228,7 @@ namespace Simulador_Admin_Procesos
         }
         private bool Acomodar(Proceso pr)
         {
+        
             if (arp[0].Count < 5)
             {
                 arp[0].Add(pr);
@@ -193,6 +239,7 @@ namespace Simulador_Admin_Procesos
                 arp[1].Add(pr);
                 return true;
             }
+
             return false;
         }
         private void botonThicc3_Click(object sender, EventArgs e)
@@ -259,6 +306,17 @@ namespace Simulador_Admin_Procesos
             Form2 rep = new Form2();
 
             rep.Dispose();
+        }
+
+        private void CB_Algoritmo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Quantum.Visible = ((ComboBox)sender).SelectedIndex == 1;
+            SPN_Quantum.Visible = ((ComboBox)sender).SelectedIndex == 1;
+        }
+
+        private void SPN_Quantum_ValueChanged(object sender, EventArgs e)
+        {
+            qmax = (int)SPN_Quantum.Value+1;
         }
     }
 }

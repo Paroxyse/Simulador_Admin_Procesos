@@ -77,6 +77,8 @@ namespace Simulador_Admin_Procesos
             this.Pri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SPN_Quantum = new System.Windows.Forms.NumericUpDown();
+            this.Quantum = new LibComponentes.labelPrefab();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Actual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SP_Tiempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_L)).BeginInit();
@@ -85,6 +87,7 @@ namespace Simulador_Admin_Procesos
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_T)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SPN_Quantum)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -140,7 +143,7 @@ namespace Simulador_Admin_Procesos
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(71, 139);
+            this.textBox6.Location = new System.Drawing.Point(71, 185);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(244, 38);
@@ -154,7 +157,7 @@ namespace Simulador_Admin_Procesos
             this.pr,
             this.Tr,
             this.Pri});
-            this.DGV_Actual.Location = new System.Drawing.Point(71, 203);
+            this.DGV_Actual.Location = new System.Drawing.Point(71, 249);
             this.DGV_Actual.Name = "DGV_Actual";
             this.DGV_Actual.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.DGV_Actual.Size = new System.Drawing.Size(253, 59);
@@ -162,6 +165,7 @@ namespace Simulador_Admin_Procesos
             // 
             // CB_Algoritmo
             // 
+            this.CB_Algoritmo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Algoritmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_Algoritmo.FormattingEnabled = true;
             this.CB_Algoritmo.Items.AddRange(new object[] {
@@ -172,14 +176,14 @@ namespace Simulador_Admin_Procesos
             this.CB_Algoritmo.Name = "CB_Algoritmo";
             this.CB_Algoritmo.Size = new System.Drawing.Size(244, 39);
             this.CB_Algoritmo.TabIndex = 12;
-            this.CB_Algoritmo.Text = "FIFO";
+            this.CB_Algoritmo.SelectedIndexChanged += new System.EventHandler(this.CB_Algoritmo_SelectedIndexChanged);
             // 
             // TB_NProc
             // 
             this.TB_NProc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_NProc.Location = new System.Drawing.Point(71, 462);
+            this.TB_NProc.Location = new System.Drawing.Point(71, 529);
             this.TB_NProc.Name = "TB_NProc";
-            this.TB_NProc.Size = new System.Drawing.Size(244, 38);
+            this.TB_NProc.Size = new System.Drawing.Size(99, 38);
             this.TB_NProc.TabIndex = 13;
             // 
             // CB_Prior
@@ -190,19 +194,29 @@ namespace Simulador_Admin_Procesos
             "Low",
             "Medium",
             "High"});
-            this.CB_Prior.Location = new System.Drawing.Point(71, 619);
+            this.CB_Prior.Location = new System.Drawing.Point(71, 679);
             this.CB_Prior.Name = "CB_Prior";
-            this.CB_Prior.Size = new System.Drawing.Size(244, 39);
+            this.CB_Prior.Size = new System.Drawing.Size(99, 39);
             this.CB_Prior.TabIndex = 14;
             this.CB_Prior.Text = "Low";
             // 
             // SP_Tiempo
             // 
             this.SP_Tiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SP_Tiempo.Location = new System.Drawing.Point(71, 542);
+            this.SP_Tiempo.Location = new System.Drawing.Point(71, 602);
+            this.SP_Tiempo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.SP_Tiempo.Name = "SP_Tiempo";
-            this.SP_Tiempo.Size = new System.Drawing.Size(244, 38);
+            this.SP_Tiempo.Size = new System.Drawing.Size(99, 38);
             this.SP_Tiempo.TabIndex = 15;
+            this.SP_Tiempo.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // labelPrefab1
             // 
@@ -219,7 +233,7 @@ namespace Simulador_Admin_Procesos
             this.labelPrefab2.AutoSize = true;
             this.labelPrefab2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.labelPrefab2.ForeColor = System.Drawing.Color.DimGray;
-            this.labelPrefab2.Location = new System.Drawing.Point(66, 433);
+            this.labelPrefab2.Location = new System.Drawing.Point(66, 500);
             this.labelPrefab2.Name = "labelPrefab2";
             this.labelPrefab2.Size = new System.Drawing.Size(218, 26);
             this.labelPrefab2.TabIndex = 17;
@@ -230,7 +244,7 @@ namespace Simulador_Admin_Procesos
             this.labelPrefab3.AutoSize = true;
             this.labelPrefab3.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.labelPrefab3.ForeColor = System.Drawing.Color.DimGray;
-            this.labelPrefab3.Location = new System.Drawing.Point(66, 513);
+            this.labelPrefab3.Location = new System.Drawing.Point(66, 573);
             this.labelPrefab3.Name = "labelPrefab3";
             this.labelPrefab3.Size = new System.Drawing.Size(192, 26);
             this.labelPrefab3.TabIndex = 18;
@@ -241,7 +255,7 @@ namespace Simulador_Admin_Procesos
             this.labelPrefab4.AutoSize = true;
             this.labelPrefab4.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.labelPrefab4.ForeColor = System.Drawing.Color.DimGray;
-            this.labelPrefab4.Location = new System.Drawing.Point(66, 590);
+            this.labelPrefab4.Location = new System.Drawing.Point(66, 650);
             this.labelPrefab4.Name = "labelPrefab4";
             this.labelPrefab4.Size = new System.Drawing.Size(104, 26);
             this.labelPrefab4.TabIndex = 19;
@@ -251,9 +265,9 @@ namespace Simulador_Admin_Procesos
             // 
             this.botonThicc1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.botonThicc1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Italic);
-            this.botonThicc1.Location = new System.Drawing.Point(71, 682);
+            this.botonThicc1.Location = new System.Drawing.Point(235, 671);
             this.botonThicc1.Name = "botonThicc1";
-            this.botonThicc1.Size = new System.Drawing.Size(244, 47);
+            this.botonThicc1.Size = new System.Drawing.Size(123, 47);
             this.botonThicc1.TabIndex = 20;
             this.botonThicc1.Text = "Agregar Proceso";
             this.botonThicc1.UseVisualStyleBackColor = false;
@@ -263,9 +277,9 @@ namespace Simulador_Admin_Procesos
             // 
             this.botonThicc2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.botonThicc2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Italic);
-            this.botonThicc2.Location = new System.Drawing.Point(71, 281);
+            this.botonThicc2.Location = new System.Drawing.Point(71, 339);
             this.botonThicc2.Name = "botonThicc2";
-            this.botonThicc2.Size = new System.Drawing.Size(244, 69);
+            this.botonThicc2.Size = new System.Drawing.Size(213, 69);
             this.botonThicc2.TabIndex = 21;
             this.botonThicc2.Text = "Agregar Procesos \r\n(10 aleatorios)";
             this.botonThicc2.UseVisualStyleBackColor = false;
@@ -276,7 +290,7 @@ namespace Simulador_Admin_Procesos
             this.labelPrefab5.AutoSize = true;
             this.labelPrefab5.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.labelPrefab5.ForeColor = System.Drawing.Color.Black;
-            this.labelPrefab5.Location = new System.Drawing.Point(66, 369);
+            this.labelPrefab5.Location = new System.Drawing.Point(66, 436);
             this.labelPrefab5.Name = "labelPrefab5";
             this.labelPrefab5.Size = new System.Drawing.Size(200, 52);
             this.labelPrefab5.TabIndex = 22;
@@ -511,11 +525,45 @@ namespace Simulador_Admin_Procesos
             this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem.Text = "Reporte detallado de procesos terminados";
             this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem.Click += new System.EventHandler(this.reporteDetalladoDeProcesosTerminadosToolStripMenuItem_Click);
             // 
+            // SPN_Quantum
+            // 
+            this.SPN_Quantum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPN_Quantum.Location = new System.Drawing.Point(185, 127);
+            this.SPN_Quantum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.SPN_Quantum.Name = "SPN_Quantum";
+            this.SPN_Quantum.Size = new System.Drawing.Size(99, 38);
+            this.SPN_Quantum.TabIndex = 32;
+            this.SPN_Quantum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.SPN_Quantum.Visible = false;
+            this.SPN_Quantum.ValueChanged += new System.EventHandler(this.SPN_Quantum_ValueChanged);
+            // 
+            // Quantum
+            // 
+            this.Quantum.AutoSize = true;
+            this.Quantum.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
+            this.Quantum.ForeColor = System.Drawing.Color.DimGray;
+            this.Quantum.Location = new System.Drawing.Point(110, 136);
+            this.Quantum.Name = "Quantum";
+            this.Quantum.Size = new System.Drawing.Size(42, 26);
+            this.Quantum.TabIndex = 33;
+            this.Quantum.Text = "Q=";
+            this.Quantum.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 789);
+            this.Controls.Add(this.Quantum);
+            this.Controls.Add(this.SPN_Quantum);
             this.Controls.Add(this.DGV_T);
             this.Controls.Add(this.DGV_SB);
             this.Controls.Add(this.DGV_SL);
@@ -556,6 +604,7 @@ namespace Simulador_Admin_Procesos
             ((System.ComponentModel.ISupportInitialize)(this.DGV_T)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SPN_Quantum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,6 +658,8 @@ namespace Simulador_Admin_Procesos
         private System.Windows.Forms.DataGridViewTextBoxColumn Pri;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem reporteDetalladoDeProcesosTerminadosToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown SPN_Quantum;
+        private LibComponentes.labelPrefab Quantum;
     }
 }
 
