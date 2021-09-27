@@ -359,6 +359,7 @@ namespace Simulador_Admin_Procesos
             ActualizarFilas();
             qmax = 5;
             qa = 0;
+            timerCicles = 0;
         }
     }
 }
