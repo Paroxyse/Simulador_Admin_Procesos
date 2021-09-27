@@ -307,7 +307,6 @@ namespace Simulador_Admin_Procesos
                 aux[i].Rows.Clear();
                 foreach(Proceso x in arp[i])
                 {
-                
                     aux[i].Rows.Add(x.nombre,x.T_rest,x.prToString());
                 }
             }
