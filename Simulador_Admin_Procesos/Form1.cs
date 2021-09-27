@@ -55,8 +55,6 @@ namespace Simulador_Admin_Procesos
                 EndProcess();
             }
             //switch con variación de método
-
-
             switch(CB_Algoritmo.SelectedIndex){
                 case 0:
                     FIFO();
@@ -71,12 +69,6 @@ namespace Simulador_Admin_Procesos
                     FIFO();
                     break;
             }
-           
-
-
-
-
-
             //aeaeaeaea
             desbloqueo();
             Unsus(3,2);
@@ -121,11 +113,8 @@ namespace Simulador_Admin_Procesos
             FIFO();
             qa++;
             if (arp[4].Count > 0 && qa >= qmax)
-            {
-                
+            {               
                 Mover(arp[4][0],arp[4],arp[1]);
-               // Unsus(1, 0);
-               // FIFO();
                 qa = 0;
             }
             
@@ -142,6 +131,7 @@ namespace Simulador_Admin_Procesos
             }
           
         }
+        //Revisa si hay espacio en las colas principales para pasar procesos de suspendido a no suspendido
         private void Unsus(int sender, int receiver) {
         for(int i = 0; i < arp[sender].Count ; i++)
             {
@@ -153,6 +143,7 @@ namespace Simulador_Admin_Procesos
                 Unsus(sender, receiver);
             }
         }
+        //Simula revisar si un proceso ya cuenta con el recurso disponible para desbloquearse
         private void desbloqueo()
         {
             
@@ -164,6 +155,7 @@ namespace Simulador_Admin_Procesos
                 }
             }
         }
+        //Simula una falta de acceso a recursos que provoca un bloqueo
         private void bloqueo()
         {
             r = new Random();
@@ -172,6 +164,7 @@ namespace Simulador_Admin_Procesos
                 AcomodarBloqueo();
             }
         }
+        //Retorna un proceso de nombre, duración y prioridad Aleatoria
         private Proceso generarNP()
         {
             r = new Random(System.DateTime.Now.Millisecond);
@@ -208,6 +201,7 @@ namespace Simulador_Admin_Procesos
 
             return new Proceso(aux, r.Next(20) + 1, r.Next(3) + 1,(int)Math.Round(stw.Elapsed.TotalSeconds)) ;
         }
+        //Retorna un proceso según datos capturados en los campos
         private Proceso capturarNP()
         {
             int s = 0;
@@ -240,6 +234,7 @@ namespace Simulador_Admin_Procesos
             MessageBox.Show("El contenedor del parámetro a no contiene al proceso p");
             
         }
+        //Este par de procesos se encargan de poner un proceso que va a agregarse o bloquearse en la cola correspondiente
         private void AcomodarBloqueo()
         {
             if (arp[2].Count < 5)
@@ -275,6 +270,7 @@ namespace Simulador_Admin_Procesos
 
             return false;
         }
+        //Controla el Inicio y pausa del sistema
         private void botonThicc3_Click(object sender, EventArgs e)
         {
             if (botonThicc3.BackColor == Color.LawnGreen)
@@ -288,7 +284,7 @@ namespace Simulador_Admin_Procesos
             botonThicc3.BackColor = Color.LawnGreen;
            
         }
-
+        //Controla la actualización del reloj y la ejecución del sistema
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (!stw.IsRunning) { stw.Start(); }
@@ -301,7 +297,8 @@ namespace Simulador_Admin_Procesos
             }
             timerCicles %= 9;
         }
-      
+      //Actualiza el contenido de las filas de los DataGridView para que reflejen el contenido de las listas sobre las cuáles se realizan
+      //Operaciones
         private void ActualizarFilas() {
           
             DataGridView[] aux = new DataGridView[] {DGV_L,DGV_B,DGV_SL,DGV_SB,DGV_Actual,DGV_T };
@@ -315,12 +312,13 @@ namespace Simulador_Admin_Procesos
                 }
             }
         }
+        //Registra un proceso entrado manualmente
         private void botonThicc1_Click(object sender, EventArgs e)
         {
             Acomodar(capturarNP());
             ActualizarFilas();
         }
-
+        //Registra 10 procesos generados automáticamente
         private void botonThicc2_Click(object sender, EventArgs e)
         {
            
@@ -332,7 +330,7 @@ namespace Simulador_Admin_Procesos
             }
             ActualizarFilas();
         }
-
+        //Abre un formulario con un reporte de todos los procesos terminados
         private void reporteDetalladoDeProcesosTerminadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Implementar llenado de columnas
@@ -351,9 +349,13 @@ namespace Simulador_Admin_Procesos
         {
             qmax = (int)SPN_Quantum.Value+1;
         }
-
+        //Vacía las listas y reinicia el temporizador
         private void richTextBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            stw.Reset();
+            Timer.Dispose();
+            lblCrn.Text = "00:00";
+            botonThicc3.BackColor = Color.DarkRed;
             setLists();
             ActualizarFilas();
             qmax = 5;
